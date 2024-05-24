@@ -8,13 +8,13 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-
+@CrossOrigin("*")
 @AllArgsConstructor
 @RestController
 @RequestMapping("/api/employees")
 public class EmployeeController {
     private EmployeeService employeeService;
-@PostMapping("/save")
+@PostMapping
     public ResponseEntity<EmployeeDto> createEmployee(@RequestBody EmployeeDto employeeDto){
         EmployeeDto savedEmployee= employeeService.createEmployee(employeeDto);
         return new ResponseEntity<>(savedEmployee,HttpStatus.CREATED);
